@@ -4,7 +4,8 @@ OPTIMIZE = -O2 -march='native'
 LD = $(CXX) $(FLAGS) $(OPTIMIZE) $(WARNINGS)
 CC = $(LD) -c
 
-DEPS=objects/lab1.1.o \
+DEPS=objects/ \
+	 objects/lab1.1.o \
 	 objects/lab1.2.o \
 	 objects/lab1.3.o \
 	 objects/lab1.4.o \
@@ -19,6 +20,8 @@ DEPS=objects/lab1.1.o \
 lab: $(DEPS)
 	$(LD) objects/*.o -o $@
 
+objects/:
+	mkdir objects
 objects/lab1.1.o: 1.1/*
 	$(MAKE) -C 1.1/
 objects/lab1.2.o: 1.2/*
